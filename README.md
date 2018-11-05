@@ -1,6 +1,12 @@
 # bbmoba2d
 Top down moba
 
+## Sprite contribution
+
+1. Create a folder containing the sprite object you're creating
+2. Character size: 64x64, Tile size: 16x16
+3. 
+
 ## Tyguy ideas
 
 Maxim, macro AA-focused character :

@@ -2,24 +2,22 @@ extends KinematicBody2D
 
 # class member variables go here, for example:
 # var a = 2
-
-var movementSpeed = 300
-
+var movementSpeed 
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	""" Called when the node is added to the scene for the first time.
+	"""
 	
+	# Initialization here
+	var properties = get_parent()
+	movementSpeed = properties.movementSpeed
+	
+	pass
 
 
 func get_input():
-	"""
-	Create a velocity vector to pass into Godot physics functions.
+	"""Create a velocity vector to pass into Godot physics functions.
 	e.g. move_and_slide( Vector2() ), move_and_collide( Vector2() )
-	
-	Args:
-		None
 		
 	Returns: 
 		A Vector2 object

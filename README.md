@@ -1,6 +1,8 @@
 # bbmoba2d
 A top-down 2D MOBA built with Godot engine :o
 
+![Freddy](https://www.cs.mcgill.ca/~jma229/images/freddy-walk.gif)
+
 ## Getting started
 
 For now, I think we should get the map environment and player controls down. Any input you guys have on the workflow we could have would be nice. IMO, everyone should work on a bit of everything so we can get that maximum EXPOSURE.

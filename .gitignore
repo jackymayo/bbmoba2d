@@ -18,3 +18,7 @@ export_presets.cfg
 .mono/
 
 # End of https://www.gitignore.io/api/godot
+
+# Mac OS files that might sneak in
+
+.DS_Store

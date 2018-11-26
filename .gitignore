@@ -7,8 +7,14 @@
 .import/
 export.cfg
 export_presets.cfg
+
+# Aseprite related 
 *.aseprite
 *.meta
+
+# Random import extension tagged to png when imported
+*.import 
+
 # Mono-specific ignores
 .mono/
 

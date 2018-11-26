@@ -1,9 +1,22 @@
 # bbmoba2d
-A top-down view moba coded using GD scripts from Godot engine.
+A top-down 2D MOBA built with Godot engine :o
+
+## Getting started
+
+For now, I think we should get the map environment and player controls down. Any input you guys have on the workflow we could have would be nice. IMO, everyone should work on a bit of everything so we can get that maximum EXPOSURE.
+
+### Brief extension info
+
+- **.tscn**, **.scn**: scene files containing all the project files. **USE TSCN** because
+it's text-based and can be version controlled (*same applies for anything else that starts with a t*). In addition, there's a TileSets.tscn used to refresh the tilsets that we could load. 
+[More info here](http://docs.godotengine.org/en/latest/tutorials/2d/using_tilemaps.html)
+- **.tres**: Resource files. TileSets.tscn can be converted to a .tres. This could then be used to load into a Tilemap object.
+- **.gd**: Basic GDScript file.
 
 ## Tyguy ideas
 
 ### Maxim, macro AA-focused character:
+
 - **Passive:** Helpful Maxim, on death he creates a helpful maxim until he revives that can only clear minions
 
 - **A:** Maxsnuzyen, Self-immobilize for 2 seconds, regain 50% over time or until hit
@@ -16,6 +29,7 @@ A top-down view moba coded using GD scripts from Godot engine.
 
 
 ### Jacky, poke character:
+
 - **Passive:** Why you gotta expose me, when not exposed, gains stats. Getting hit by an opponent's ability exposes jacky for 2 seconds
 
 - **A:** Public Bee Fly, a line skill shot that can hit minions. Deals damage and has a chance of inflicting the “bee fly in public setting” debuff (cannot go invisible)
@@ -28,6 +42,7 @@ A top-down view moba coded using GD scripts from Godot engine.
 
  
 ### Fredy, all in clown fiesta character:
+
 - **Passive 1:** POGGERS, Every kill increases attack stat.
 
 - **Passive 2:** MonkaFRICKENs: Every death reduces max health
@@ -36,12 +51,13 @@ A top-down view moba coded using GD scripts from Godot engine.
 
 - **B:** Going to Stanford, point and click arcane shift that damages everything around
 
-- **Ult:** Summon Wai Lun, summons a ranged ally(Basically a ranged helpful maxim) that attacks whatever Fredy is targeting. Can only be one Wai Lun at a time.
+- **Ult:** Summon Wai Lun, summons a ranged ally (Basically a ranged helpful maxim) that attacks whatever Fredy is targeting. Can only be one Wai Lun at a time.
 
 - **Mine:** Duckatown misc mine, Answer three random prompts in character select. The choices are based of duckatown prompts and it chooses whether it’s a heal, slow, speed up or damage. Or fake tree trap #S
 
  
 ### Sam, assassin:
+
 - **Passive:** Suddenly MIA, Whenever the clock hits X:00 Sam gains invisibility for 5 seconds or until he attacks a unit
 
 - **A:** Hits you with the Hard R, empowered auto that slows movement by 35% (because you feel REAL uncomfortable)
@@ -54,6 +70,7 @@ A top-down view moba coded using GD scripts from Godot engine.
 
 
 ### Tyler, Buff/Debuff Support:
+
 - **Passive:** SBTyguy, Can deny his own minions to give opponent exposed status (gives reduced gold to enemy and must be down at >5% hp)
 
 - **A:** Deletes your messages: Point and click silence
@@ -76,11 +93,15 @@ A top-down view moba coded using GD scripts from Godot engine.
 
 
 ## Items to buy:
+
 - Small turret
 - Scrolls, one time spells (heal, buff, debuff, dot)
 - Fake-tree, basically a ward
 
 
-## Contributing Sprites
-1. Create a folder containing the sprite object you're creating
+## Contributing on Sprites
+
+1. Create a folder of the category for the sprite if it doesn't exist.
 2. Character size: 64x64, Tile size: 16x16
+3. Make sure tiles have edges link
+4. Load it into the TileSets.tscn. [More info here](http://docs.godotengine.org/en/latest/tutorials/2d/using_tilemaps.html)

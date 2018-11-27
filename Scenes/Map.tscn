@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Resources/tiles.tres" type="TileSet" id=1]
 
-[node name="Maps" type="Node" index="0"]
+[node name="Map" type="Node"]
 
 [node name="Grass" type="TileMap" parent="." index="0"]
 
@@ -47,6 +47,6 @@ format = 1
 tile_data = PoolIntArray( 393229, 0, 0 )
 _sections_unfolded = [ "Cell" ]
 
-[node name="Map" type="Node2D" parent="." index="2"]
+[node name="Players" type="Node" parent="." index="2"]
 
 

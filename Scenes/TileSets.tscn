@@ -1,18 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/tiles/grass-tile.png" type="Texture" id=1]
 [ext_resource path="res://Assets/tiles/brick-floor.png" type="Texture" id=2]
+[ext_resource path="res://Assets/tiles/bottom-wall.png" type="Texture" id=3]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
-[node name="Grass" type="Sprite" parent="." index="0"]
+[node name="grass" type="Sprite" parent="." index="0"]
 
 position = Vector2( 8, 8 )
 texture = ExtResource( 1 )
 
-[node name="Gray Brick" type="Sprite" parent="." index="1"]
+[node name="gray-brick" type="Sprite" parent="." index="1"]
 
 position = Vector2( 28, 8 )
 texture = ExtResource( 2 )
+
+[node name="bottom-wall" type="Sprite" parent="." index="2"]
+
+position = Vector2( 48.0274, 7.96637 )
+texture = ExtResource( 3 )
 
 

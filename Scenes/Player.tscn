@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/PlayerProperties.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GeneralMovement.gd" type="Script" id=2]
 [ext_resource path="res://Assets/beebois/freddy/freddy.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/GeneralCombat.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Player" type="Node"]
+[node name="Player" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -24,9 +25,15 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="Movement" index="0"]
 
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Movement" index="1"]
 
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Combat" type="Node2D" parent="." index="1"]
+
+script = ExtResource( 4 )
 
 

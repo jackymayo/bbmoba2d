@@ -9,5 +9,5 @@ For example in your script you could do something like:
 ```GDScript
 var SomeSceneWithJuicyDeets = load('res://Scenes/Bullet.tscn')
 var SceneTree = SomeSceneWithJuicyDeets.instance()
-get_node
+get_node('/root').add_child(SceneTree)
 ```

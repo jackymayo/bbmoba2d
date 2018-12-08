@@ -5,6 +5,7 @@ A top-down 2D MOBA built with Godot engine :o
 
 ## Getting started
 
+
 For now, I think we should get the map environment and player controls down. Any input you guys have on the workflow we could have would be nice. IMO, everyone should work on a bit of everything so we can get that maximum EXPOSURE.
 
 ### Brief extension info
@@ -14,6 +15,18 @@ it's text-based and can be version controlled (*same applies for anything else t
 [More info here](http://docs.godotengine.org/en/latest/tutorials/2d/using_tilemaps.html)
 - **.tres**: Resource files. TileSets.tscn can be converted to a .tres. This could then be used to load into a Tilemap object.
 - **.gd**: Basic GDScript file.
+
+### File structure
+
+Check each folder for some more getting started associated with this.
+
+1. Assets (Sprites/Tiles/Animations)
+	- Obstacles: Tiles that have a collision on them
+	- Tiles: Tiles that don't have a collision on them (Might need to remove some)
+2. Scenes: Basically any objects that we want to define along with the map
+3. Scripts: GD scripts
+4. Resources: For now all we have are the compiled tilesets.
+
 
 ## Tyguy ideas
 

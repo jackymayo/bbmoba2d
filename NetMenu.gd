@@ -19,6 +19,7 @@ func _on_LobbyCreate_pressed():
 		print("HEHE")
 		return
 	Network.create_server(player_name)
+	print("Server created")
 	_load_game()
 
 func _load_game():

@@ -1,13 +1,14 @@
 extends Node
 
 remote func pre_configure_game():
-	
+	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected')
+	get_tree().connect('server_disconnected', self, '_on_server_disconnected')
 	# Load the map
 	var map = load("res://Scenes/Map.tscn").instance()
 	get_node("/root/Server/Game").add_child(map)
 	
 	# Host creates server 
-	Network.create_server("joe")
+
 	var selfPeerId = get_tree().get_network_unique_id()
 	var new_player = preload("res://Scenes/Player.tscn").instance()
 	new_player.name = str(selfPeerId)
@@ -23,7 +24,6 @@ func _ready():
 	# Initialization here)
 	pre_configure_game()
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _on_player_disconnected(id):
+	get_node(str(id)).queue_free()
+

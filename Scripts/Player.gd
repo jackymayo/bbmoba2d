@@ -61,7 +61,10 @@ func _physics_process(delta):
 	if get_tree().is_network_server():
 		Network.update_position(1, position)
 
-
+func init(nickname, start_position, is_slave):
+	global_position = start_position
+	if is_slave:
+		$Sprite.texture = load('res://Assets/beebois/freddy/freddy-alt.png')
 """ Pasta
 func damage(value):
 	health_points -= value
@@ -91,9 +94,5 @@ func _on_RespawnTimer_timeout():
 	_update_health_bar()
 
 
-func init(nickname, start_position, is_slave):
-	$GUI/Nickname.text = nickname
-	global_position = start_position
-	if is_slave:
-		$Sprite.texture = load('res://player/player-alt.png')
+
 """

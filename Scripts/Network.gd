@@ -26,7 +26,7 @@ func connect_to_server(player_name):
 	self_data.name = player_name
 	get_tree().connect('connected_to_server', self, '_connected_to_server')
 	var peer = NetworkedMultiplayerENet.new()
-	peer.create_server(DEFAULT_IP, DEFAULT_PORT)
+	peer.create_client(DEFAULT_IP, DEFAULT_PORT)
 	get_tree().set_network_peer(peer)
 
 func _connected_to_server():
@@ -55,10 +55,10 @@ remote func _request_players(request_from_id):
 
 remote func _send_player_info(id, info):
 	players[id] = info
-	var new_player = load('res://player/Player.tscn').instance()
+	var new_player = load('res://Scenes/Player.tscn').instance()
 	new_player.name = str(id)
 	new_player.set_network_master(id)
-	$'/root/Server/Game/Map'.add_child(new_player)
+	$'/root/Server/Game/Map/Players'.add_child(new_player)
 	new_player.init(info.name, info.position, true)
 
 func update_position(id, position):

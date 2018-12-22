@@ -13,6 +13,10 @@ config_version=3
 config/name="moba2d"
 run/main_scene="res://Scenes/Game.tscn"
 
+[autoload]
+
+Network="*res://Scripts/Network.gd"
+
 [display]
 
 window/size/width=512

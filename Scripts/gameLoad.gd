@@ -1,11 +1,9 @@
 extends Node
 
-remote func pre_configure_game():
+func pre_configure_game():
 
-	
 	var map = load("res://Scenes/Map.tscn").instance()
 	get_node("/root/Server/Game").add_child(map)
-	var Network = get_parent()
 	
 	Network.create_server("joe")
 	var selfPeerID = get_tree().get_network_unique_id()

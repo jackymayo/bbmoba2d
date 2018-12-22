@@ -60,7 +60,7 @@ func _physics_process(delta):
 		position = slave_position
 	
 	if get_tree().is_network_server():
-		Network.update_position(int(name), position)
+		Network.update_position(1, position)
 
 
 """ Pasta

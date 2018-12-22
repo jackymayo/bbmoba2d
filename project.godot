@@ -11,7 +11,11 @@ config_version=3
 [application]
 
 config/name="moba2d"
-run/main_scene="res://Scenes/Game.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
+
+[autoload]
+
+Network="*res://Scripts/Network.gd"
 
 [display]
 

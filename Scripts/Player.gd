@@ -1,8 +1,7 @@
 extends KinematicBody2D
 
-const MOVE_SPEED = 10.0
-const MAX_HP = 100
-
+export (int) var movementSpeed 
+onready var Network = $'/root/Server'
 enum MoveDirection {DOWN, LEFT, UP, RIGHT}
 
 slave var slave_position = Vector2()
@@ -41,10 +40,12 @@ func get_input():
 	return [velocity, direction]
 
 func _physics_process(delta):
-	var direction = MoveDirection.NONE
+	var direction = MoveDirection.DOWN
 	if is_network_master():
 		# Capture key presses and get velocity using helper function
-		var velocity = get_input()
+		var output = get_input()
+		var velocity = output[0]
+		direction = output[1]
 		
 		# Send updates to slaves
 		rset_unreliable('slave_position', position)

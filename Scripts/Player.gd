@@ -90,10 +90,11 @@ func _on_RespawnTimer_timeout():
 	$CollisionShape2D.disabled = false
 	health_points = MAX_HP
 	_update_health_bar()
-"""
+
 
 func init(nickname, start_position, is_slave):
 	$GUI/Nickname.text = nickname
 	global_position = start_position
 	if is_slave:
 		$Sprite.texture = load('res://player/player-alt.png')
+"""

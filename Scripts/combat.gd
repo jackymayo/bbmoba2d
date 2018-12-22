@@ -4,11 +4,12 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 var bulletCount = 0 # This would need to pass to something else
+var bulletScene
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	pass
+	bulletScene = load('res://Scenes/Bullet.tscn')
 
 func _collisionEvent(object):
 	""" TODO:
@@ -17,6 +18,7 @@ func _collisionEvent(object):
 		Object this object has collided with.
 		
 	"""
+	pass
 
 	
 func projectile_shoot():
@@ -24,11 +26,10 @@ func projectile_shoot():
 	"""
 	var playerPos = get_parent().get_node('Movement').get_position()
 
-	var bulletNode = load('res://Scenes/Bullet.tscn').instance()
+	var bulletNode = bulletScene.instance()
 	
 	bulletCount += 1
 	bulletNode.set_name(str(bulletCount))
-
 	
 	# TODO: Get player orientation and rotate sprite accordingly
 	# TODO: Also add padding to avoid player postiion from being bumped by collider
@@ -40,13 +41,14 @@ func projectile_shoot():
 	However it's 20 """
 	# ¯\_(ツ)_/¯ 
 
-	playerPos.y += 20 
+	playerPos.y += 20
 	bulletNode.set_position(playerPos) # TODO: Direction should be accounted for in offset
 	
-	bulletNode.get_child(0).rotate(playerOrientation)
+	bulletNode.get_node("Sprite").rotate(playerOrientation)
 
-	get_node('/root/Server/Game/Map/').add_child(bulletNode)
-	
+	# HEHEHE REVIEWED
+	# get_node('/root/Server/Game/Map/').add_child(bulletNode)
+	add_child(bulletNode)
 
 
 
@@ -58,8 +60,6 @@ func get_input():
 		print("Auto attack")
 		# Should be kinematic collision
 		projectile_shoot()
-
-		pass
 
 func _physics_process(delta):
 	get_input()

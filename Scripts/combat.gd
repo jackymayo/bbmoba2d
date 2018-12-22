@@ -33,7 +33,25 @@ func projectile_shoot():
 	
 	# TODO: Get player orientation and rotate sprite accordingly
 	# TODO: Also add padding to avoid player postiion from being bumped by collider
-	var playerOrientation = deg2rad(90)
+	var direction = get_parent().get_node('Movement').get_direction()
+	"""
+	Magic Numbers to change the direction of the bullet
+	"""
+	var deg = 90
+	
+	if direction.x == -1:
+		deg = 180
+		playerPos.x -= 20
+	elif direction.x == 1:
+		deg = 0
+		playerPos.x += 20
+	elif direction.y == 1:
+		deg = 90
+		playerPos.y += 20
+	else:
+		deg = 270
+		playerPos.y -= 20
+	var playerOrientation = deg2rad(deg)
 	
 	""" The collision is calculated strangely.
 	Given that the bullet is 16x16, and the player is 64x64
@@ -41,7 +59,7 @@ func projectile_shoot():
 	However it's 20 """
 	# ¯\_(ツ)_/¯ 
 
-	playerPos.y += 20
+	#playerPos.y += 20
 	bulletNode.set_position(playerPos) # TODO: Direction should be accounted for in offset
 	
 	bulletNode.get_node("Sprite").rotate(playerOrientation)

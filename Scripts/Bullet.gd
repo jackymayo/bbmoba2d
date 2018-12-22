@@ -9,7 +9,9 @@ export (Vector2) var velocity
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	
+	var direction = get_parent().get_parent().get_node("Movement").get_direction();
+	velocity.y = velocity.y*direction["y"]
+	velocity.x = velocity.x*direction["x"]
 	pass
 
 func _physics_process(delta):

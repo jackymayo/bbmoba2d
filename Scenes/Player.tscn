@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/playerStats.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/movement.gd" type="Script" id=2]
-[ext_resource path="res://Assets/beebois/freddy/freddy.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/combat.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/beebois/freddy/freddy.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/combat.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -12,16 +11,13 @@ extents = Vector2( 10, 10 )
 
 [node name="Player" type="Node" index="0"]
 
-script = ExtResource( 1 )
-movementSpeed = 150
-
 [node name="Movement" type="KinematicBody2D" parent="." index="0"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 movementSpeed = 150
 
 [node name="Camera2D" type="Camera2D" parent="Movement" index="0"]
@@ -52,7 +48,7 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Offset" ]
 
 [node name="Sprite" type="Sprite" parent="Movement" index="1"]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Movement" index="2"]
@@ -62,6 +58,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Combat" type="Node2D" parent="." index="1"]
 
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
 

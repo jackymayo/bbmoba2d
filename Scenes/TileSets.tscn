@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/tiles/grass-tile.png" type="Texture" id=1]
 [ext_resource path="res://Assets/tiles/brick-floor.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tiles/bottom-wall.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Misc/Fountain Placeholder.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Misc/Empty Base Placeholder.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Misc/Forest placeholder.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Misc/Lane Placeholder.png" type="Texture" id=7]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 [node name="grass" type="Sprite" parent="." index="0"]
 
@@ -20,5 +24,25 @@ texture = ExtResource( 2 )
 
 position = Vector2( 48.0274, 7.96637 )
 texture = ExtResource( 3 )
+
+[node name="fountain-placeholder" type="Sprite" parent="." index="3"]
+
+position = Vector2( 92.2685, 32.1188 )
+texture = ExtResource( 4 )
+
+[node name="empty-base-placeholder" type="Sprite" parent="." index="4"]
+
+position = Vector2( 163.806, 31.8268 )
+texture = ExtResource( 5 )
+
+[node name="forest-placeholder" type="Sprite" parent="." index="5"]
+
+position = Vector2( 232.715, 32.1188 )
+texture = ExtResource( 6 )
+
+[node name="lane-placeholder" type="Sprite" parent="." index="6"]
+
+position = Vector2( 89.9326, 99.8603 )
+texture = ExtResource( 7 )
 
 

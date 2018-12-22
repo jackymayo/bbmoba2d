@@ -11,20 +11,11 @@ func _ready():
 	# Initialization here
 	bulletScene = load('res://Scenes/Bullet.tscn')
 
-func _collisionEvent(object):
-	""" TODO:
-	
-	Args:
-		Object this object has collided with.
-		
-	"""
-	pass
 
-	
 func projectile_shoot():
 	""" Shoots a projectile from the player node
 	"""
-	var playerPos = get_parent().get_node('Movement').get_position()
+	var playerPos = get_parent().get_position()
 
 	var bulletNode = bulletScene.instance()
 	
@@ -40,16 +31,18 @@ func projectile_shoot():
 	You would assume that the offset would be 8 + 32
 	However it's 20 """
 	# ¯\_(ツ)_/¯ 
-
+	
+	print(playerPos)
 	playerPos.y += 20
 	bulletNode.set_position(playerPos) # TODO: Direction should be accounted for in offset
 	
 	bulletNode.get_node("Sprite").rotate(playerOrientation)
 
-	# HEHEHE REVIEWED
-	# get_node('/root/Server/Game/Map/').add_child(bulletNode)
-	add_child(bulletNode)
-
+	# Turns out not adding it to map cause some weird warping in projectile shooting when
+	# moving the script
+	get_node('/root/Server/Game/Map/').add_child(bulletNode)
+	#add_child(bulletNode)
+	
 
 
 	

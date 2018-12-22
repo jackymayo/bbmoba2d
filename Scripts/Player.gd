@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 export (int) var movementSpeed 
-onready var Network = $'/root/Server'
 enum MoveDirection {DOWN, LEFT, UP, RIGHT}
 
 slave var slave_position = Vector2()

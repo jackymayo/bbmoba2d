@@ -1,2 +1,0 @@
-extends TextEdit
-signal

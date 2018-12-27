@@ -65,6 +65,10 @@ func init(nickname, start_position, is_slave):
 	global_position = start_position
 	if is_slave:
 		$Sprite.texture = load('res://Assets/beebois/freddy/freddy-alt.png')
+	"""else:
+		$Camera.make_current()
+		print("FOLLOW" + nickname)"""
+
 """ Pasta
 func damage(value):
 	health_points -= value

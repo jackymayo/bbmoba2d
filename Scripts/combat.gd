@@ -9,7 +9,7 @@ var bulletScene
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	bulletScene = load('res://Scenes/Bullet.tscn')
+	bulletScene = preload('res://Scenes/Bullet.tscn')
 
 
 func projectile_shoot():

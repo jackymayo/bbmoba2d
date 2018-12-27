@@ -34,11 +34,11 @@ _sections_unfolded = [ "Offset", "Pause", "Transform" ]
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
+[node name="Camera" type="Camera2D" parent="." index="3"]
 
 anchor_mode = 1
 rotating = false
-current = true
+current = false
 zoom = Vector2( 1, 1 )
 limit_left = -10000000
 limit_top = -10000000

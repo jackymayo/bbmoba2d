@@ -27,5 +27,5 @@ func _ready():
 	pre_configure_game()
 	
 func _on_player_disconnected(id):
-	get_node(str(id)).queue_free()
+	$'/root/Server/Game/Map/Players'.get_node(str(id)).queue_free()
 

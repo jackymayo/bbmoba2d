@@ -3,7 +3,6 @@ extends Node2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var bullet_count = 0 # This would need to pass to something else
 var bullet_scene
 
 func _ready():
@@ -45,8 +44,8 @@ remote func _projectile_shoot(projectile_source_id):
 remote func _spawn_projectile(source_orientation, source_position):
 	# Instantiate
 	var bullet_node = bullet_scene.instance()
-	bullet_count += 1
-	bullet_node.set_name(str(bullet_count))
+	Network.scene_data.bullet_count += 1
+	bullet_node.set_name(str(Network.scene_data.bullet_count))
 	
 	""" The collision is calculated strangely.
 	Given that the bullet is 16x16, and the player is 64x64

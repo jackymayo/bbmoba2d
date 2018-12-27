@@ -5,6 +5,7 @@ const DEFAULT_PORT = 31400
 const MAX_PLAYERS = 4
 
 export var players = { }
+var scene_data = { bullet_count = 0 }
 var self_data = { name = '', position = Vector2(360, 180) }
 
 signal player_disconnected

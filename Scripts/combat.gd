@@ -24,6 +24,7 @@ func request_shoot():
 remote func _projectile_shoot(projectile_source_id):
 	""" Shoots a projectile from the player node
 	"""
+
 	
 	# Compute source position based on server-side ground truth
 	var source_player = $'/root/Server/Game/Map/Players'.get_node(str(projectile_source_id))
@@ -60,6 +61,7 @@ remote func _spawn_projectile(source_orientation, source_position):
 	# moving the script
 	get_node('/root/Server/Game/Map/Projectiles/').add_child(bullet_node)
 	#add_child(bulletNode)
+
 
 func get_input():
 	""" This would be merged into one get_input later on

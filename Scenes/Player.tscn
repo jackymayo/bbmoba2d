@@ -9,7 +9,8 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Player" type="KinematicBody2D"]
+
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -34,7 +35,9 @@ _sections_unfolded = [ "Offset", "Pause", "Transform" ]
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
+
 [node name="Camera" type="Camera2D" parent="." index="3"]
+
 
 anchor_mode = 1
 rotating = false

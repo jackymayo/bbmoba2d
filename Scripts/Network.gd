@@ -4,6 +4,7 @@ const DEFAULT_IP = '127.0.0.1'
 const DEFAULT_PORT = 31400
 const MAX_PLAYERS = 4
 
+
 export var players = { }
 var scene_data = { bullet_count = 0 }
 var self_data = { name = '', position = Vector2(360, 180) }
@@ -57,6 +58,7 @@ remote func _request_players(request_from_id):
 		for peer_id in players:
 			if( peer_id != request_from_id):
 				rpc_id(request_from_id, '_send_player_info', peer_id, players[peer_id])
+
 
 # Executed by server via an rpc to server in _connected_to_server() and
 # executed by clients using information delivered by server

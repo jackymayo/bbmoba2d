@@ -28,11 +28,11 @@ remote func _projectile_shoot(projectile_source_id):
 	
 	# Compute source position based on server-side ground truth
 	var source_player = $'/root/Server/Game/Map/Players'.get_node(str(projectile_source_id))
-	var player_pos = source_player.get_node('Movement').get_position()
+	var player_pos = source_player.get_position()
 	
 	# TODO: Get player orientation and rotate sprite accordingly
 	# TODO: Also add padding to avoid player postiion from being bumped by collider
-	var direction = source_player.get_node('Movement').get_direction()
+	var direction = source_player.get_direction()
 
 	# Magic Numbers to change the direction of the bullet
 	# :))))))))
@@ -51,7 +51,7 @@ remote func _projectile_shoot(projectile_source_id):
 		player_pos.y -= 20
 	
 	# Grab player orientation
-	var player_orientation = get_parent().get_node('Movement').direction	
+	var player_orientation = direction	
 	
 	# Broadcast bullet spawn
 	# TODO: use rpc(...) instead

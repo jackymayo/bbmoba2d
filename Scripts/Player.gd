@@ -1,39 +1,44 @@
-extends Node
-
-"""extends KinematicBody2D
+extends KinematicBody2D
 
 export (int) var movementSpeed 
-enum MoveDirection {DOWN, LEFT, UP, RIGHT}
+
+var direction = {"x" : 0, "y" : 1}
 
 slave var slave_position = Vector2()
 slave var slave_velocity = Vector2()
-slave var slave_direction = MoveDirection.DOWN
+slave var slave_direction = direction # Set default direction
 
 func _ready():
 	pass
 
+func get_direction():
+	return direction;
+
 func get_input():
-	'''Create a velocity vector to pass into Godot physics functions.
+	"""Create a velocity vector to pass into Godot physics functions.
 	e.g. move_and_slide( Vector2() ), move_and_collide( Vector2() )
 		
 	Returns: 
 		A Vector2 object
-	'''
+	"""
+	
 	var velocity = Vector2()
-	var direction = DOWN
 	if Input.is_action_pressed('ui_left'):
-		# TODO
-		direction = LEFT
 		velocity.x -= 1
+		direction["x"] = -1
+		direction["y"] = 0
 	if Input.is_action_pressed('ui_right'):
-		direction = RIGHT
 		velocity.x += 1
+		direction["x"] = 1
+		direction["y"] = 0
 	if Input.is_action_pressed('ui_up'):
-		direction = UP
 		velocity.y -= 1
+		direction["x"] = 0
+		direction["y"] = -1
 	if Input.is_action_pressed('ui_down'):
-		direction = DOWN
-		velocity.y += 1	
+		velocity.y += 1
+		direction["x"] = 0
+		direction["y"] = 1
 	
 	# Normalize vector components so diagonal is not sonic speederinos.
 	velocity = velocity.normalized() * movementSpeed
@@ -41,7 +46,7 @@ func get_input():
 	return [velocity, direction]
 
 func _physics_process(delta):
-	var direction = MoveDirection.DOWN
+
 	if is_network_master():
 		# Capture key presses and get velocity using helper function
 		var output = get_input()
@@ -51,7 +56,8 @@ func _physics_process(delta):
 		# Send updates to slaves
 		rset_unreliable('slave_position', position)
 		rset_unreliable('slave_velocity', velocity)
-		rset('slave_movement', direction)
+		rset_unreliable('slave_direction', direction)
+		# rset('slave_movement', direction)
 
 		#move_and_slide(vector)
 		move_and_collide(velocity)
@@ -59,22 +65,22 @@ func _physics_process(delta):
 		#move_and_slide(vector)
 		move_and_collide(slave_velocity)
 		position = slave_position
+		direction = slave_direction
 	
 	if get_tree().is_network_server():
 		Network.update_position(1, position)
-		"""
 
 func init(nickname, start_position, is_slave):
-	
-	# global_position = start_position
-	$Sprite.position = start_position
-	
+	global_position = start_position
 	if is_slave:
 		$Sprite.texture = load('res://Assets/beebois/freddy/freddy-alt.png')
+		
 	""" i dunno what this is for but keeping it for reference o_o
+	This is for making the camera follow, but it's in the wrong place :))))
     else:
 		$Camera.make_current()
 		print("FOLLOW" + nickname)"""
+
 """ Pasta
 func damage(value):
 	health_points -= value
@@ -102,7 +108,4 @@ func _on_RespawnTimer_timeout():
 	$CollisionShape2D.disabled = false
 	health_points = MAX_HP
 	_update_health_bar()
-
-
-
 """

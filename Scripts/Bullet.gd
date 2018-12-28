@@ -7,14 +7,21 @@ var projectile_lifetime
 # var a = 2
 # var b = "textvar"
 
+# Initialization method for correct orientation
+# Need to do this to give server authority over projectile direction
+func init(direction):
+	# var direction = get_parent().get_node("Movement").get_direction();
+	velocity.y = velocity.y*direction["y"]
+	velocity.x = velocity.x*direction["x"]	
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	var direction = get_parent().get_parent().get_node("Movement").get_direction();
-	velocity.y = velocity.y*direction["y"]
-	velocity.x = velocity.x*direction["x"]
-	projectile_lifetime = projectile_range/(sqrt(pow(velocity.x,2) + pow(velocity.y,2)))
-	pass
+	var speed = velocity.length()
+	if speed == 0: # Division by zero edge case
+		projectile_lifetime = 0
+	else:
+		projectile_lifetime = projectile_range/speed
 
 func _physics_process(delta):
 	var collision_object = move_and_collide(velocity)

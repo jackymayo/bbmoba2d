@@ -1,4 +1,6 @@
-extends KinematicBody2D
+extends Node
+
+"""extends KinematicBody2D
 
 export (int) var movementSpeed 
 enum MoveDirection {DOWN, LEFT, UP, RIGHT}
@@ -11,12 +13,12 @@ func _ready():
 	pass
 
 func get_input():
-	"""Create a velocity vector to pass into Godot physics functions.
+	'''Create a velocity vector to pass into Godot physics functions.
 	e.g. move_and_slide( Vector2() ), move_and_collide( Vector2() )
 		
 	Returns: 
 		A Vector2 object
-	"""
+	'''
 	var velocity = Vector2()
 	var direction = DOWN
 	if Input.is_action_pressed('ui_left'):
@@ -60,9 +62,13 @@ func _physics_process(delta):
 	
 	if get_tree().is_network_server():
 		Network.update_position(1, position)
+		"""
 
 func init(nickname, start_position, is_slave):
-	global_position = start_position
+	
+	# global_position = start_position
+	$Sprite.position = start_position
+	
 	if is_slave:
 		$Sprite.texture = load('res://Assets/beebois/freddy/freddy-alt.png')
 	""" i dunno what this is for but keeping it for reference o_o

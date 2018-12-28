@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/movement.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/beebois/freddy/freddy.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/combat.gd" type="Script" id=3]
 
@@ -11,20 +11,38 @@ extents = Vector2( 10, 10 )
 
 [node name="Player" type="Node"]
 
-[node name="Movement" type="KinematicBody2D" parent="." index="0"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-movementSpeed = 150
+_sections_unfolded = [ "Transform", "collision" ]
+movementSpeed = 5
 
-[node name="Camera2D" type="Camera2D" parent="Movement" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Pause", "Transform" ]
+
+[node name="Combat" type="Node2D" parent="." index="2"]
+
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+
+[node name="Camera" type="Camera2D" parent="." index="3"]
+
 
 anchor_mode = 1
 rotating = false
-current = true
+current = false
 zoom = Vector2( 1, 1 )
 limit_left = -10000000
 limit_top = -10000000

@@ -2,8 +2,13 @@ extends KinematicBody2D
 
 # class member variables go here, for example:
 # var a = 2
+<<<<<<< HEAD
 export (int) var movementSpeed 
 var direction = {"x" : 0, "y" : 0}
+=======
+
+
+>>>>>>> master
 func _ready():
 	""" Called when the node is added to the scene for the first time.
 	"""

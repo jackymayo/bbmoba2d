@@ -71,7 +71,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Health text" type="Label" parent="HUD" index="0"]
+[node name="HealthTest" type="Label" parent="HUD" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -94,7 +94,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="TextureProgress" type="TextureProgress" parent="HUD" index="1"]
+[node name="HealthGUI" type="TextureProgress" parent="HUD" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0

@@ -3,7 +3,6 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/beebois/freddy/freddy.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/combat.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/GenericMine.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -61,11 +60,8 @@ editor_draw_limits = true
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Editor", "Offset" ]
 
-[node name="GenericMine" type="Node" parent="." index="4"]
 
-script = ExtResource( 4 )
 
-[node name="MineSprite" type="Sprite" parent="GenericMine" index="0"]
 
 visible = false
 

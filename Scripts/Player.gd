@@ -21,7 +21,7 @@ func get_input():
 	Returns: 
 		A Vector2 object
 	"""
-	
+
 	var velocity = Vector2()
 	if Input.is_action_pressed('ui_left'):
 		velocity.x -= 1
@@ -80,6 +80,7 @@ func init(nickname, start_position, is_slave):
     else:
 		$Camera.make_current()
 		print("FOLLOW" + nickname)"""
+
 
 """ Pasta
 func damage(value):

@@ -18,6 +18,7 @@ config/icon="res://Assets/obstacles/labatt50.png"
 [autoload]
 
 Network="*res://Scripts/Network.gd"
+Abilities="*res://Scripts/AbilityLoad.gd"
 
 [display]
 
@@ -27,6 +28,8 @@ window/size/height=640
 [input]
 
 auto_attack=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+ability_mine=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":84,"unicode":0,"echo":false,"script":null)
  ]
 
 [rendering]

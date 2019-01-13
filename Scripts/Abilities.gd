@@ -1,6 +1,6 @@
 extends Node
 
 func _ready():
-	var fredUlt = preload('res://Scripts/fredUlt.gd').new()
-	fredUlt.name = 'fredUlt'
-	add_child(fredUlt)
+	var AA = preload('res://Scripts/Abilities/AutoAttack.gd').new()
+	AA.name = 'AutoAttack'
+	add_child(AA)

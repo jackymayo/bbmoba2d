@@ -2,7 +2,7 @@
 A top-down 2D MOBA built with Godot engine :o
 
 ![Freddy](https://www.cs.mcgill.ca/~jma229/images/freddy-walk.gif)
-
+![Jacky](https://github.com/jackymayo/bbmoba2d/blob/fred/Assets/beebois/jacky/jacky-attack.gif)
 ## Getting started
 
 

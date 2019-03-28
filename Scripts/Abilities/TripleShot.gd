@@ -1,10 +1,12 @@
 extends "res://Scripts/Ability.gd"
 
-const cooldown = 0.2
-const mp_cost = 0.0
+const cooldown = 1.2
+const mp_cost = 0.4
 
 """
-Single-projectile auto-attack
+Experimental skill that shoots three times
+
+@details Implements: cooldowns, resource costs, delayed actor construction
 """
 
 static func validate(player, cooldown_timer):
@@ -22,6 +24,7 @@ static func validate(player, cooldown_timer):
 		player.vitals.mp -= mp_cost
 		return true
 	else:
+		print("Can't cast!")
 		return false
 
 static func execute(player, cooldown_timer):
@@ -42,7 +45,9 @@ static func execute(player, cooldown_timer):
 	# Pay cooldowns
 	cooldown_timer.set_wait_time(cooldown)
 	cooldown_timer.start()
-	return [{"delay": 0.0}]
+	return [{"delay": 0.0},
+	        {"delay": 0.2},
+			{"delay": 0.45}]
 
 static func construct_actor(player):
 	""" Returns an actor to be constructed by a child node of the scene tree.

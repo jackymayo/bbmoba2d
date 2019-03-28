@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 export (int) var movementSpeed 
 
+# HP and stuff
+var vitals = {"hp": 2, "mp" : 1}
+
 var direction = {"x" : 0, "y" : 1}
 
 slave var slave_position = Vector2()

@@ -20,6 +20,7 @@ config/icon="res://Assets/obstacles/labatt50.png"
 Network="*res://Scripts/Network.gd"
 Abilities="*res://Scripts/Abilities.gd"
 Constants="*res://Scripts/Constants.gd"
+Clock="*res://Scenes/Clock.tscn"
 
 [display]
 

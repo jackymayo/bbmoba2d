@@ -46,8 +46,8 @@ static func execute(player, cooldown_timer):
 	cooldown_timer.set_wait_time(cooldown)
 	cooldown_timer.start()
 	return [{"delay": 0.0},
-	        {"delay": 0.2},
-			{"delay": 0.45}]
+	        {"delay": 0.3},
+			{"delay": 0.75}]
 
 static func construct_actor(player):
 	""" Returns an actor to be constructed by a child node of the scene tree.

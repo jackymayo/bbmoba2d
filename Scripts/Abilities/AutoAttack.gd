@@ -95,8 +95,17 @@ static func construct_actor(player):
 	# Turns out not adding it to map cause some weird warping in projectile shooting when
 	# moving the script
 	# :thonk:
+#	bullet_node.on_hit = funcref(bullet_node, "effect")
+#	FuncRef.call_func(funcref(bullet_node, "effect"), 1)
+#	bullet_node.connect("hit", bullet_node, "_on_Timer_timeout")
 
 	return bullet_node
+
+static func on_hit_effect(target):
+	"""
+	param[in] target (Object) Some entity that was hit by the actor of this skill.
+	"""
+	target.vitals.hp -= 0.05
 
 static func spawn_particles(player):
 	pass

@@ -1,8 +1,12 @@
 extends KinematicBody2D
 
+signal hit
+
 export (Vector2) var velocity
 export (int) var projectile_range
 var projectile_lifetime
+var source_name
+
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
@@ -29,6 +33,8 @@ func _physics_process(delta):
 	if projectile_lifetime <= 0.0:
         queue_free()
 	if collision_object:
-		print('collision occured!')
+		# Do things to target entity
+		emit_signal("hit", collision_object)
+		# Destroy bullet
 		queue_free()
 

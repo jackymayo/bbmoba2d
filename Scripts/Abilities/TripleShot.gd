@@ -41,7 +41,7 @@ static func execute(player, cooldown_timer):
 	@details Returns some delays and stuff, after which by default
 	  construct_actor is called.
 	"""
-	
+
 	# Pay cooldowns
 	cooldown_timer.set_wait_time(cooldown)
 	cooldown_timer.start()
@@ -54,38 +54,23 @@ static func construct_actor(player):
 	
 	@param[in] player Reference to player node
 	@return (Scene instance) Instance of the actor (projectile) at the correct pos
-	
 	"""
 
 	# Instantiate actor
 	var bullet_scene = preload('res://Scenes/Bullet.tscn')
 	var bullet_node = bullet_scene.instance()
 
-	# Compute position
+	# Set position to that of player
 	var position = player.get_position()
 	var direction = player.get_direction()
+	
+	# Offset position for clearance
 	var spawn_offset = 20
-	var deg = 90
-
 	position.x += direction.x*spawn_offset
 	position.y += direction.y*spawn_offset
+	bullet_node.set_position(position)
 
-#	match direction:
-#		Constants.LEFT:
-#			deg = 180
-#			player_pos.x -= spawn_offset
-#		Constants.RIGHT:
-#			deg = 0
-##			player_pos.x += spawn_offset
-#		Constants.DOWN:
-#			deg = 90
-##			player_pos.y += spawn_offset
-#		Constants.UP:
-#			deg = 270
-##			player_pos.y -= spawn_offset
-#		_:
-#			pass
-
+	# Initialize actor
 	bullet_node.init(player.get_direction())
 
 	# Update network's bullet count (for testing)
@@ -93,15 +78,25 @@ static func construct_actor(player):
 	# Give bullet a unique sequential name
 	bullet_node.set_name(str(Network.scene_data.bullet_count))
 
-	# Positioning
+	# Rotate sprite to fire direction
+	var deg = 90
 	bullet_node.get_node("Sprite").rotate(deg2rad(deg))
-	bullet_node.set_position(position)
-
+	
 	# Turns out not adding it to map cause some weird warping in projectile shooting when
 	# moving the script
 	# :thonk:
 
 	return bullet_node
 
-static func spawn_particles(player):
-	pass
+static func on_hit_effect(target):
+	""" On-hit effect callback.
+	
+	@param[in,out] target (Object) Some entity that was hit by the actor of this skill.
+	  Assumed to have a `vitals` attribute
+	@details Applies on-hit effects to the target hit
+	"""
+
+	if target.get("vitals") == null:
+		return
+	# Reduce target hp
+	target.vitals.hp -= 0.05

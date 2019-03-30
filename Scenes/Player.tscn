@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/beebois/freddy/freddy.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/combat.gd" type="Script" id=3]
-[ext_resource path="res://Assets/hud/hud-under.png" type="Texture" id=4]
-[ext_resource path="res://Assets/hud/hud-over.png" type="Texture" id=5]
-[ext_resource path="res://Assets/hud/hud-progress.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Abilities/AutoAttack.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Abilities/TripleShot.gd" type="Script" id=5]
+[ext_resource path="res://Assets/hud/hud-under.png" type="Texture" id=6]
+[ext_resource path="res://Assets/hud/hud-over.png" type="Texture" id=7]
+[ext_resource path="res://Assets/hud/hud-progress.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -109,7 +109,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 40.0
 margin_top = 500.0
-margin_right = 110.0
+margin_right = 140.0
+margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -123,9 +124,9 @@ page = 0.0
 value = 69.0
 exp_edit = true
 rounded = false
-texture_under = ExtResource( 4 )
-texture_over = ExtResource( 5 )
-texture_progress = ExtResource( 6 )
+texture_under = ExtResource( 6 )
+texture_over = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
 fill_mode = 3
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )

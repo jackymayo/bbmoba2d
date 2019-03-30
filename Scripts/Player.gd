@@ -22,6 +22,10 @@ func _ready():
 	$HUD/HealthGUI.value = vitals.hp
 	$HUD/ManaGUI.max_value = vitals.maxmp
 	$HUD/ManaGUI.value = vitals.mp
+	$HUD/QButton/TextureProgress.max_value = 100
+	#http://docs.godotengine.org/en/3.0/classes/class_textureprogress.html
+	$HUD/QButton/TextureProgress.fill_mode = TextureProgress.FILL_CLOCKWISE
+	$HUD/QButton/TextureProgress.nine_patch_stretch = true
 	# Check if this client controls this player
 	if name == str(get_tree().get_network_unique_id()):
 		pass
@@ -71,6 +75,11 @@ func _process(delta):
 		$HUD/HealthGUI.value = vitals.hp
 		$HUD/ManaText.text = "MP: " + str(vitals.mp) + "/" + str(vitals.maxmp)
 		$HUD/ManaGUI.value = vitals.mp
+		
+		# Update skills
+		
+		$HUD/QButton/TextureProgress.value = 100.0 * (1.0 - $Combat.ability_timers[0].time_left / \
+		  $Combat.ability_timers[0].wait_time)
 
 func _physics_process(delta):
 

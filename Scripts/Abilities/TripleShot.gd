@@ -1,7 +1,7 @@
 extends "res://Scripts/Ability.gd"
 
 const cooldown = 1.2
-const mp_cost = 0.4
+const mp_cost = 5.0
 
 """
 Experimental skill that shoots three times
@@ -11,24 +11,29 @@ Experimental skill that shoots three times
 
 static func validate(player, cooldown_timer):
 	""" Returns whether or not the ability cast was valid.
-	
+
 	@param[in,out] player Reference to player node
 	@param[in] cooldown-timer (Timer) Reference to Timer object corresponding
 	  to this ability slot
 	@return (bool) Whether or not this ability can be used
 	"""
-	
+
 	# If have enough resources and cooled down
 	if player.vitals.mp >= mp_cost and cooldown_timer.is_stopped():
-		# Pay costs
-		player.vitals.mp -= mp_cost
 		return true
 	else:
-		print("Can't cast!")
+		print("Can't cast triple shot!")
 		return false
 
+#static func pay_cost(player):
+#	""" Pays ability costs. 
+#
+#	@param[in,out[ player Reference to player node
+#	"""
+#	player.vitals.mp -= mp_cost
+
 static func execute(player, cooldown_timer):
-	""" Executes the action, returning timings for missile to fire.
+	""" Executes the action, payings costs and returning timings for missile to fire.
 	
 	@param[in,out] player Reference to player node
 	@param[in,out] cooldown_timer (Timer) Reference to Timer object corresponding
@@ -42,6 +47,8 @@ static func execute(player, cooldown_timer):
 	  construct_actor is called.
 	"""
 
+	# Pay cost
+	player.vitals.mp -= mp_cost
 	# Pay cooldowns
 	cooldown_timer.set_wait_time(cooldown)
 	cooldown_timer.start()
@@ -99,4 +106,4 @@ static func on_hit_effect(target):
 	if target.get("vitals") == null:
 		return
 	# Reduce target hp
-	target.vitals.hp -= 0.05
+	target.vitals.hp -= 3.0

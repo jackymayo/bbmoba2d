@@ -3,7 +3,12 @@ extends KinematicBody2D
 export (int) var movementSpeed 
 
 # HP and stuff
-var vitals = {"hp": 2, "mp" : 1}
+var initial_maxhp = 50.0
+var initial_maxmp = 20.0
+var vitals = {"maxhp": initial_maxhp,
+			  "maxmp": initial_maxmp,
+			  "hp": initial_maxhp,
+			  "mp" : initial_maxmp}
 
 var direction = {"x" : 0, "y" : 1}
 
@@ -12,7 +17,18 @@ slave var slave_velocity = Vector2()
 slave var slave_direction = direction # Set default direction
 
 func _ready():
-	pass
+	# Set up Health globe
+	$HUD/HealthGUI.max_value = vitals.maxhp
+	$HUD/HealthGUI.value = vitals.hp
+	$HUD/ManaGUI.max_value = vitals.maxmp
+	$HUD/ManaGUI.value = vitals.mp
+	# Check if this client controls this player
+	if name == str(get_tree().get_network_unique_id()):
+		pass
+	else:
+		# Client does not control this player
+		remove_child($HUD)
+		pass
 
 func get_direction():
 	return direction;
@@ -47,6 +63,14 @@ func get_input():
 	velocity = velocity.normalized() * movementSpeed
 	
 	return [velocity, direction]
+
+func _process(delta):
+	# Check if this client controls this player
+	if name == str(get_tree().get_network_unique_id()):
+		$HUD/HealthText.text = "HP: " + str(vitals.hp) + "/" + str(vitals.maxhp)
+		$HUD/HealthGUI.value = vitals.hp
+		$HUD/ManaText.text = "MP: " + str(vitals.mp) + "/" + str(vitals.maxmp)
+		$HUD/ManaGUI.value = vitals.mp
 
 func _physics_process(delta):
 

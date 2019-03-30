@@ -12,12 +12,13 @@ func _init():
 	""" Called when ability is instanced; this happens automatically by
 	  preloaders, but is not necessary.
 	"""
+
 	print("Virtual: Ability instanced.")
 
 static func validate(player, cooldown_timer):
 	""" Returns whether or not the ability cast was valid.
 
-	@param[in,out] player Reference to player node
+	@param[in] player Reference to player node
 	@param[in] cooldown-timer (Timer) Reference to Timer object corresponding
 	  to this ability slot
 	@return (bool) Whether or not this ability can be used

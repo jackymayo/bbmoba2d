@@ -9,7 +9,6 @@ func pre_configure_game():
 	get_node("/root/Server/Game").add_child(map)
 	
 	# Host creates server 
-
 	var selfPeerId = get_tree().get_network_unique_id()
 	var new_player = preload("res://Scenes/Player.tscn").instance()
 	new_player.name = str(selfPeerId)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/beebois/freddy/freddy.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Assets/hud/hud-under.png" type="Texture" id=4]
 [ext_resource path="res://Assets/hud/hud-over.png" type="Texture" id=5]
 [ext_resource path="res://Assets/hud/hud-progress.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Abilities/AutoAttack.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Abilities/TripleShot.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -36,9 +38,14 @@ _sections_unfolded = [ "Offset", "Pause", "Transform" ]
 
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
+abilityBasic = ExtResource( 4 )
+abilityCharge = null
+abilityMine = null
+abilityUlt = ExtResource( 5 )
 
 [node name="Camera" type="Camera2D" parent="." index="3"]
 
+visible = false
 anchor_mode = 1
 rotating = false
 current = false

@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 export (int) var movementSpeed 
 
+# HP and stuff
+var vitals = {"hp": 2, "mp" : 1}
+
 var direction = {"x" : 0, "y" : 1}
 
 slave var slave_position = Vector2()
@@ -21,7 +24,7 @@ func get_input():
 	Returns: 
 		A Vector2 object
 	"""
-	
+
 	var velocity = Vector2()
 	if Input.is_action_pressed('ui_left'):
 		velocity.x -= 1
@@ -80,6 +83,7 @@ func init(nickname, start_position, is_slave):
     else:
 		$Camera.make_current()
 		print("FOLLOW" + nickname)"""
+
 
 """ Pasta
 func damage(value):

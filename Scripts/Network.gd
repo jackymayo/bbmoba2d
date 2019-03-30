@@ -11,7 +11,7 @@ var self_data = { name = '', position = Vector2(360, 180) }
 
 signal player_disconnected
 signal server_disconnected
-
+signal player_loaded # Emitted when player stats is sent to the other peers
 	
 func _ready():
 	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected')
@@ -24,7 +24,8 @@ func create_server(player_name):
 	peer.create_server(DEFAULT_PORT, MAX_PLAYERS)
 	get_tree().set_network_peer(peer)
 
-func connect_to_server(player_name):
+func connect_to_server(player_name, target_ip):
+	print(player_name + '&' + target_ip)
 	self_data.name = player_name
 	# Should be adding a listener for event 'connected_to_server'
 	get_tree().connect('connected_to_server', self, '_connected_to_server')
@@ -36,6 +37,7 @@ func _connected_to_server():
 	var local_player_id = get_tree().get_network_unique_id()
 	players[local_player_id] = self_data
 	rpc('_send_player_info', local_player_id, self_data)
+	emit_signal('player_loaded')
 
 func _on_player_disconnected(id):
 	players.erase(id)

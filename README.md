@@ -2,7 +2,7 @@
 A top-down 2D MOBA built with Godot engine :o
 
 ![Freddy](https://www.cs.mcgill.ca/~jma229/images/freddy-walk.gif)
-
+![Jacky](https://github.com/jackymayo/bbmoba2d/blob/fred/Assets/beebois/jacky/jacky-attack.gif)
 ## Getting started
 
 
@@ -120,3 +120,7 @@ Check each folder for some more getting started associated with this.
 2. Character size: 64x64, Tile size: 16x16
 3. Make sure tiles have edges link
 4. Load it into the TileSets.tscn. [More info here](http://docs.godotengine.org/en/latest/tutorials/2d/using_tilemaps.html)
+
+## Ideas
+- Every character being able to charge up for the same buff, something like X% more attack speed or movement speed, getting hit
+delays or cancels the channel
